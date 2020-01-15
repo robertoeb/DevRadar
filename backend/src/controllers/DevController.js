@@ -39,5 +39,39 @@ module.exports = {
     }
 
     return res.json(dev);
+  },
+
+  async update(req, res) {
+    const {
+      github_username,
+      avatar_url,
+      bio,
+      techs,
+      latitude,
+      longitude
+    } = req.body;
+
+    const location = {
+      type: "Point",
+      coordinates: [longitude, latitude]
+    };
+
+    const techsArray = parseStringAsArray(techs);
+
+    const dev = await Dev.findOneAndUpdate(github_username, {
+      avatar_url,
+      bio,
+      techs: techsArray,
+      location
+    });
+
+    return res.json(dev);
+  },
+
+  async delete(req, res) {
+    const github_username = req.query.username;
+    await Dev.findOneAndDelete(github_username);
+
+    return res.sendStatus(204);
   }
 };

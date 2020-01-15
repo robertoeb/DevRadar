@@ -6,7 +6,12 @@ const app = express();
 
 mongoose.connect(
   "mongodb+srv://omnistack:omnistack@devradar-yhjvb.gcp.mongodb.net/devradar?retryWrites=true&w=majority",
-  { useNewUrlParser: true, useNewUrlParser: true, useUnifiedTopology: true }
+  {
+    useNewUrlParser: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
+  }
 );
 
 app.use(express.json());
