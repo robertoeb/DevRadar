@@ -36,9 +36,13 @@ module.exports = {
         techs: techsArray,
         location
       });
+
+      return res.json(dev);
     }
 
-    return res.json(dev);
+    return res
+      .status(400)
+      .json({ error: `The dev ${github_username} already registered!` });
   },
 
   async update(req, res) {
@@ -64,6 +68,12 @@ module.exports = {
       techs: techsArray,
       location
     });
+
+    if (!dev) {
+      return res.status(404).json({
+        error: `The dev ${github_username} is not was registered yet!`
+      });
+    }
 
     return res.json(dev);
   },
