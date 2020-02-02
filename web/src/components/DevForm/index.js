@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 
-import "./styles.css";
+import {
+  Form,
+  InputBlock,
+  InputGroup,
+  Label,
+  Input,
+  SubmitButton
+} from "./styles";
 
 function DevForm({ onSubmit }) {
   const [github_username, setGithubUsername] = useState("");
@@ -40,33 +47,33 @@ function DevForm({ onSubmit }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="input-block">
-        <label htmlFor="github_username">Usuário do Github</label>
-        <input
+    <Form onSubmit={handleSubmit}>
+      <InputBlock>
+        <Label htmlFor="github_username">Usuário do Github</Label>
+        <Input
           name="github_username"
           id="github_username"
           required
           value={github_username}
           onChange={e => setGithubUsername(e.target.value)}
         />
-      </div>
+      </InputBlock>
 
-      <div className="input-block">
-        <label htmlFor="techs">Tecnologias</label>
-        <input
+      <InputBlock>
+        <Label htmlFor="techs">Tecnologias</Label>
+        <Input
           name="techs"
           id="techs"
           required
           value={techs}
           onChange={e => setTechs(e.target.value)}
         />
-      </div>
+      </InputBlock>
 
-      <div className="input-group">
-        <div className="input-block">
-          <label htmlFor="latitude">Latitude</label>
-          <input
+      <InputGroup>
+        <InputBlock>
+          <Label htmlFor="latitude">Latitude</Label>
+          <Input
             type="number"
             name="latitude"
             id="latitude"
@@ -74,11 +81,11 @@ function DevForm({ onSubmit }) {
             value={latitude}
             onChange={e => setLatitude(e.target.value)}
           />
-        </div>
+        </InputBlock>
 
-        <div className="input-block">
-          <label htmlFor="longitude">Longitude</label>
-          <input
+        <InputBlock>
+          <Label htmlFor="longitude">Longitude</Label>
+          <Input
             type="number"
             name="longitude"
             id="longitude"
@@ -86,11 +93,11 @@ function DevForm({ onSubmit }) {
             value={longitude}
             onChange={e => setLongitude(e.target.value)}
           />
-        </div>
-      </div>
+        </InputBlock>
+      </InputGroup>
 
-      <button type="submit">Salvar</button>
-    </form>
+      <SubmitButton type="submit">Cadastrar</SubmitButton>
+    </Form>
   );
 }
 
