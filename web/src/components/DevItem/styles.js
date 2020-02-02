@@ -1,51 +1,52 @@
-li.dev-item {
+import styled from "styled-components";
+
+export const ListItem = styled.li`
   background: #fff;
   box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.02);
   border-radius: 2px;
   padding: 20px;
-}
+`;
 
-li.dev-item header {
+export const Header = styled.header`
   display: flex;
   flex-direction: row;
   align-items: center;
-}
+`;
 
-li.dev-item header img {
+export const Avatar = styled.img`
   width: 54px;
   height: 54px;
   border-radius: 50%;
-}
+`;
 
-li.dev-item header .user-info {
+export const UserInfo = styled.div`
   margin-left: 10px;
-}
+`;
 
-.user-info strong {
+export const Name = styled.strong`
   display: block;
   font-size: 16px;
   color: #333;
-}
+`;
 
-.user-info span {
+export const Techs = styled.span`
   font-size: 13px;
   color: #999;
   margin-top: 2px;
-}
+`;
 
-li.dev-item p {
+export const Bio = styled.p`
   color: #666;
   font-size: 14px;
   line-height: 20px;
   margin: 10px 0;
-}
+`;
 
-li.dev-item a {
+export const GitHubLink = styled.a`
   color: #8e4dff;
   font-size: 14px;
   text-decoration: none;
-}
-
-li.dev-item a:hover {
-  color: #5a2ea6;
-}
+  &:hover {
+    color: #5a2ea6;
+  }
+`;

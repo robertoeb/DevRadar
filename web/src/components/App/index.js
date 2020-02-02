@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
-import api from "./services/api";
+import api from "../../services/api";
 
-import "./global.css";
-import "./App.css";
-import "./Sidebar.css";
-import "./Main.css";
+import { Container, Aside, Main, List, Title } from "./styles";
 
-import DevItem from "./components/DevItem";
-import DevForm from "./components/DevForm";
+import GlobalStyle from "../../styles/global";
+import DevItem from "../DevItem";
+import DevForm from "../DevForm";
 
 function App() {
   const [devs, setDevs] = useState([]);
@@ -29,19 +27,20 @@ function App() {
   }
 
   return (
-    <div id="app">
-      <aside>
-        <strong>Cadastrar</strong>
+    <Container id="app">
+      <GlobalStyle />
+      <Aside>
+        <Title>Cadastrar</Title>
         <DevForm onSubmit={handleAddDev} />
-      </aside>
-      <main>
-        <ul>
+      </Aside>
+      <Main>
+        <List>
           {devs.map(dev => (
             <DevItem dev={dev} key={dev._id} />
           ))}
-        </ul>
-      </main>
-    </div>
+        </List>
+      </Main>
+    </Container>
   );
 }
 
