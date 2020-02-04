@@ -7,14 +7,13 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
-    "env-cmd": "^10.0.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "3.3.0",
     "styled-components": "^5.0.0"
   },
   "scripts": {
-    "start": "env-cmd .env.development react-scripts start",
+    "start": "sh -ac '. ./.env; react-scripts start'",
     "build": "env-cmd .env.production react-scripts build",
     "test": "env-cmd .env.development react-scripts test",
     "eject": "react-scripts eject"
